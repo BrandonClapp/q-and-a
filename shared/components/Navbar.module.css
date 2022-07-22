@@ -1,0 +1,14 @@
+.navbar {
+    height: 80px;
+    background-color: rgb(236, 236, 236);
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0 0 5px 5px;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 1em;
+}

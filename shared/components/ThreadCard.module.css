@@ -1,0 +1,18 @@
+.threadCard {
+    padding: 1em;
+    background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+}
+
+.threadCard .tags {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 0.5em;
+}
+
+.threadCard .tags .tag {
+    border-radius: 99px;
+    background-color: #9ce3f9;
+    padding: 0.25em 0.5em;
+    font-size: 0.8em;
+}
