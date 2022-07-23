@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Prisma CLI Info:
 
-## Getting Started
+https://www.prisma.io/docs/reference/api-reference/command-reference
 
-First, run the development server:
+### Creating Migrations
 
-```bash
-npm run dev
-# or
-yarn dev
+https://www.prisma.io/docs/getting-started/quickstart#3-run-a-migration-to-create-your-database-tables-with-prisma-migrate
+
+Migrate with npm:
+
+```
+npx prisma migrate dev --name init
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Migrate with yarn:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+yarn prisma migrate dev --name init
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Pulling DB schema into the prisma schema file
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The `db pull` command connects to your database and adds Prisma models to your Prisma schema that reflect the current database schema.
 
-## Learn More
+Pull with npm (maybe?)
 
-To learn more about Next.js, take a look at the following resources:
+```
+npx prisma db pull
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pull with yarn:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+yarn prisma db pull
+```

@@ -8,8 +8,35 @@ datasource db {
 }
 
 model thread {
-  id        Int      @id @default(autoincrement())
-  title     String
-  content   String?
-  createdAt DateTime
+  id            Int             @id @default(autoincrement())
+  title         String
+  content       String?
+  createdAt     DateTime
+  author        user?           @relation(fields: [userId], references: [id])
+  userId        Int?
+  tags          tag[]           @relation("TagsOnThreads")
+  TagsOnThreads TagsOnThreads[]
+}
+
+model user {
+  id      Int      @id @default(autoincrement())
+  name    String
+  threads thread[]
+}
+
+model tag {
+  id            Int             @id @default(autoincrement())
+  name          String
+  threads       thread[]        @relation("TagsOnThreads")
+  TagsOnThreads TagsOnThreads[]
+}
+
+model TagsOnThreads {
+  thread   thread @relation(fields: [threadId], references: [id])
+  threadId Int
+
+  tag   tag @relation(fields: [tagId], references: [id])
+  tagId Int
+
+  @@id([threadId, tagId])
 }

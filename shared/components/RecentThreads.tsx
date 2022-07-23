@@ -1,24 +1,28 @@
 import React from "react";
+import { ThreadWithRelations } from "../models/ThreadWithRelations";
 import styles from "./RecentThreads.module.css";
 import ThreadCard from "./ThreadCard";
 
-export default function RecentThreads() {
+interface RecentThreadsProps {
+  threads: ThreadWithRelations[];
+}
+
+export default function RecentThreads(props: RecentThreadsProps) {
+  const { threads } = props;
+
   return (
     <div>
       <h1>Threads</h1>
       <div className={styles.threadsContainer}>
-        <ThreadCard
-          title="My first thread title"
-          exerpt="Some thread exerpt"
-          authorName="Alex"
-          tags={["help", "new"]}
-        />
-        <ThreadCard
-          title="My second thread title"
-          exerpt="Some thread exerpt"
-          authorName="Brandon"
-          tags={["question"]}
-        />
+        {threads.map((thread) => (
+          <ThreadCard
+            key={thread.id}
+            title={thread.title}
+            exerpt={thread.content}
+            authorName={thread.author.name}
+            tags={thread.tags}
+          />
+        ))}
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { tag } from "@prisma/client";
 import React from "react";
 import styles from "./ThreadCard.module.css";
 
@@ -5,7 +6,7 @@ interface ThreadCardProps {
   title: string;
   exerpt: string;
   authorName: string;
-  tags?: string[];
+  tags?: tag[];
 }
 
 export default function ThreadCard(props: ThreadCardProps) {
@@ -19,8 +20,8 @@ export default function ThreadCard(props: ThreadCardProps) {
       {tags !== undefined && tags.length > 0 && (
         <div className={styles.tags}>
           {tags.map((tag) => (
-            <div className={styles.tag} key={tag}>
-              {tag}
+            <div className={styles.tag} key={tag.id}>
+              {tag.name}
             </div>
           ))}
         </div>

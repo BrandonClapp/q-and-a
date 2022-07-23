@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, thread } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const prisma = new PrismaClient();
@@ -12,6 +12,7 @@ export default async function NewThread(
       title: "Generated Thread Title",
       content: "Generated thread content",
       createdAt: new Date(),
+      userId: 1,
     },
   });
 
